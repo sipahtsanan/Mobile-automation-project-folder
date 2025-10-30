@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.13 on darwin)" generated="2025-10-30T20:32:23.537670" rpa="false" schemaversion="5">
+<suite id="s1" name="Testcase" source="/Users/ltarn/Desktop/Mobile-Automate/testcase/testcase.robot">
+<test id="s1-t1" name="TC_1 Verify creation the to do list without reminder success" line="7">
+<kw name="Open Minimal application success" owner="common_keyword">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=Android</arg>
+<arg>platformVersion=${PlatformVersion}</arg>
+<arg>deviceName=${DeviceName}</arg>
+<arg>app=${AppName}</arg>
+<arg>automationName=uiautomator2</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2025-10-30T20:32:23.774146" elapsed="10.600005"/>
+</kw>
+<arg>'${system}' == 'Android'</arg>
+<arg>Open Application</arg>
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=Android</arg>
+<arg>platformVersion=${PlatformVersion}</arg>
+<arg>deviceName=${DeviceName}</arg>
+<arg>app=${AppName}</arg>
+<arg>automationName=uiautomator2</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-30T20:32:23.773876" elapsed="10.600836"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Minimal</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2025-10-30T20:32:34.375374" elapsed="0.257020"/>
+</kw>
+<status status="PASS" start="2025-10-30T20:32:23.773205" elapsed="10.859316"/>
+</kw>
+<kw name="Create to do list success without reminder" owner="create_to_do_keyword">
+<kw name="Create to do list" owner="create_to_do_keyword">
+<kw name="Click ${createToDoList} button" owner="common_keyword" source_name="Click ${ButtonName} button">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:34.679532" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<arg>${ButtonName}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:34.633867" elapsed="0.045751"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:34.681008" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB'.</msg>
+<msg time="2025-10-30T20:32:34.825828" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<arg>${ButtonName}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-10-30T20:32:34.679830" elapsed="0.146157"/>
+</kw>
+<status status="PASS" start="2025-10-30T20:32:34.633584" elapsed="0.192570"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:36.902498" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText
+criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${createTitleToDoList}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:34.826375" elapsed="2.076232"/>
+</kw>
+<kw name="Input message" owner="common_keyword">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:36.971954" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${locator}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:36.903618" elapsed="0.068465"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:36.975968" level="INFO">Typing text 'Buy A Fruits' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg time="2025-10-30T20:32:37.087318" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${locator}</arg>
+<arg>${message}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2025-10-30T20:32:36.972357" elapsed="0.115077"/>
+</kw>
+<arg>${createTitleToDoList}</arg>
+<arg>${title}</arg>
+<status status="PASS" start="2025-10-30T20:32:36.903008" elapsed="0.184553"/>
+</kw>
+<arg>${titleTodoList}</arg>
+<status status="PASS" start="2025-10-30T20:32:34.633244" elapsed="2.454412"/>
+</kw>
+<kw name="Click ${saveToDoList} button" owner="common_keyword" source_name="Click ${ButtonName} button">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:37.948877" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<arg>${ButtonName}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:37.088304" elapsed="0.860687"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:37.950743" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg time="2025-10-30T20:32:38.117569" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<arg>${ButtonName}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-10-30T20:32:37.949216" elapsed="0.168764"/>
+</kw>
+<status status="PASS" start="2025-10-30T20:32:37.087972" elapsed="1.030455"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Minimal</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2025-10-30T20:32:38.119120" elapsed="1.869525"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:40.020619" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoListItemTextview</msg>
+<arg>${toDoListItemTextview}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:39.988827" elapsed="0.031871"/>
+</kw>
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:40.022156" level="INFO">Verifying element 'id=com.avjindersinghsekhon.minimaltodo:id/toDoListItemTextview' contains exactly text 'Buy A Fruits'.</msg>
+<msg time="2025-10-30T20:32:40.053357" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoListItemTextview</msg>
+<arg>${toDoListItemTextview}</arg>
+<arg>${titleTodoList}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<status status="PASS" start="2025-10-30T20:32:40.020862" elapsed="0.032574"/>
+</kw>
+<arg>${taskName}</arg>
+<status status="PASS" start="2025-10-30T20:32:34.632841" elapsed="5.420688"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" start="2025-10-30T20:32:40.054031" elapsed="0.830473"/>
+</kw>
+<doc>A user opens the Minimal app and create the to-do list without reminder</doc>
+<tag>TC_1</tag>
+<status status="PASS" start="2025-10-30T20:32:23.772178" elapsed="17.112491"/>
+</test>
+<test id="s1-t2" name="TC_2 Verify creation the to do list with reminder success" line="13">
+<kw name="Open Minimal application success" owner="common_keyword">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=Android</arg>
+<arg>platformVersion=${PlatformVersion}</arg>
+<arg>deviceName=${DeviceName}</arg>
+<arg>app=${AppName}</arg>
+<arg>automationName=uiautomator2</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2025-10-30T20:32:40.886203" elapsed="13.243807"/>
+</kw>
+<arg>'${system}' == 'Android'</arg>
+<arg>Open Application</arg>
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=Android</arg>
+<arg>platformVersion=${PlatformVersion}</arg>
+<arg>deviceName=${DeviceName}</arg>
+<arg>app=${AppName}</arg>
+<arg>automationName=uiautomator2</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-30T20:32:40.885940" elapsed="13.244264"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Minimal</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2025-10-30T20:32:54.130388" elapsed="0.721424"/>
+</kw>
+<status status="PASS" start="2025-10-30T20:32:40.885612" elapsed="13.966289"/>
+</kw>
+<kw name="Create to do list success with reminder" owner="create_to_do_keyword">
+<kw name="Create to do list" owner="create_to_do_keyword">
+<kw name="Click ${createToDoList} button" owner="common_keyword" source_name="Click ${ButtonName} button">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:54.890666" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<arg>${ButtonName}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:54.853284" elapsed="0.037464"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:54.892118" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB'.</msg>
+<msg time="2025-10-30T20:32:54.982570" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<arg>${ButtonName}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-10-30T20:32:54.890914" elapsed="0.091792"/>
+</kw>
+<status status="PASS" start="2025-10-30T20:32:54.852909" elapsed="0.129926"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:57.352783" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText
+criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${createTitleToDoList}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:54.983033" elapsed="2.369879"/>
+</kw>
+<kw name="Input message" owner="common_keyword">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:57.449680" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${locator}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:57.353614" elapsed="0.096196"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:57.451874" level="INFO">Typing text 'Buy A Fruits' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg time="2025-10-30T20:32:57.576186" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<arg>${locator}</arg>
+<arg>${message}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2025-10-30T20:32:57.450111" elapsed="0.126301"/>
+</kw>
+<arg>${createTitleToDoList}</arg>
+<arg>${title}</arg>
+<status status="PASS" start="2025-10-30T20:32:57.353221" elapsed="0.223323"/>
+</kw>
+<arg>${titleTodoList}</arg>
+<status status="PASS" start="2025-10-30T20:32:54.852633" elapsed="2.724074"/>
+</kw>
+<kw name="Click ${toggleRemindMe} button" owner="common_keyword" source_name="Click ${ButtonName} button">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:58.441995" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat</msg>
+<arg>${ButtonName}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:57.579200" elapsed="0.863079"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:58.446838" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat'.</msg>
+<msg time="2025-10-30T20:32:58.582410" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat</msg>
+<arg>${ButtonName}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-10-30T20:32:58.442936" elapsed="0.139698"/>
+</kw>
+<status status="PASS" start="2025-10-30T20:32:57.577983" elapsed="1.004795"/>
+</kw>
+<kw name="Click ${saveToDoList} button" owner="common_keyword" source_name="Click ${ButtonName} button">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:59.462297" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<arg>${ButtonName}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:32:58.583570" elapsed="0.878875"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-10-30T20:32:59.466272" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg time="2025-10-30T20:32:59.644916" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<arg>${ButtonName}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-10-30T20:32:59.462659" elapsed="0.182405"/>
+</kw>
+<status status="PASS" start="2025-10-30T20:32:58.583125" elapsed="1.062152"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Minimal</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2025-10-30T20:32:59.645610" elapsed="1.943868"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:33:01.618728" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoListItemTextview</msg>
+<arg>${toDoListItemTextview}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-10-30T20:33:01.589651" elapsed="0.029162"/>
+</kw>
+<kw name="Element Text Should Be" owner="AppiumLibrary">
+<msg time="2025-10-30T20:33:01.620280" level="INFO">Verifying element 'id=com.avjindersinghsekhon.minimaltodo:id/toDoListItemTextview' contains exactly text 'Buy A Fruits'.</msg>
+<msg time="2025-10-30T20:33:01.647522" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoListItemTextview</msg>
+<arg>${toDoListItemTextview}</arg>
+<arg>${titleTodoList}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<status status="PASS" start="2025-10-30T20:33:01.618993" elapsed="0.028609"/>
+</kw>
+<kw name="Element Should Be Visible" owner="AppiumLibrary">
+<msg time="2025-10-30T20:33:01.683756" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/todoListItemTimeTextView</msg>
+<arg>${toDoListItemTimeTextview}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" start="2025-10-30T20:33:01.647767" elapsed="0.036071"/>
+</kw>
+<arg>${taskName}</arg>
+<status status="PASS" start="2025-10-30T20:32:54.852272" elapsed="6.831640"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" start="2025-10-30T20:33:01.684229" elapsed="0.901665"/>
+</kw>
+<doc>A user opens the Minimal app and create the to-do list with reminder</doc>
+<tag>TC_2</tag>
+<status status="PASS" start="2025-10-30T20:32:40.885031" elapsed="21.701005"/>
+</test>
+<status status="PASS" start="2025-10-30T20:32:23.540287" elapsed="39.046321"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">TC_1</stat>
+<stat pass="1" fail="0" skip="0">TC_2</stat>
+</tag>
+<suite>
+<stat name="Testcase" id="s1" pass="2" fail="0" skip="0">Testcase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
