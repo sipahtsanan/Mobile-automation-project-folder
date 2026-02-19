@@ -18,6 +18,20 @@ pipeline {
             }
         }
 
+
+        stage('Check Android') {
+            steps {
+                sh '''
+                    echo "USER: $(whoami)"
+                    echo "PWD: $(pwd)"
+                    echo "ANDROID_HOME=$ANDROID_HOME"
+                    which adb || true
+                    which emulator || true
+                    emulator -list-avds || true
+                '''
+            }
+        }   
+
         stage('Run Mobile Tests') {
             steps {
                 sh '''
