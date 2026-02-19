@@ -12,8 +12,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                    pip install robotframework --break-system-packages
-                    pip install robotframework-appiumlibrary --break-system-packages
+                    pip3 install robotframework --break-system-packages
+                    pip3 install robotframework-appiumlibrary --break-system-packages
                 '''
             }
         }
