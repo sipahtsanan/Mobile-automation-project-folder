@@ -32,6 +32,21 @@ pipeline {
             }
         }   
 
+
+        stage('Debug Path') {
+            steps {
+                sh '''
+                    echo "===== DEBUG PATH ====="
+                    echo "PWD=$(pwd)"
+                    ls -la
+                    echo "---- app folder ----"
+                    ls -la app || true
+                    echo "======================"
+                '''
+            }
+        }
+
+
         stage('Run Mobile Tests') {
             steps {
                 sh '''
