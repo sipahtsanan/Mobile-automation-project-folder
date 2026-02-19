@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    environment {
+        // ชี้ไปที่ Appium บน Mac host
+        APPIUM_HOST = 'host.docker.internal'
+        APPIUM_PORT = '4723'
+    }
+
+    stages {
+
+        stage('Install Dependencies') {
+            steps {
+                sh '''
+                    pip install robotframework --break-system-packages
+                    pip install robotframework-appiumlibrary --break-system-packages
+                '''
+            }
+        }
+
+        stage('Run Mobile Tests') {
+            steps {
+                sh '''
+                    python3 -m robot \
+                        -v system:Android \
+                        -v APPIUM_HOST:${APPIUM_HOST} \
+                        -v APPIUM_PORT:${APPIUM_PORT} \
+                        --output output.xml \
+                        --log log.html \
+                        --report report.html \
+                        testcase/testcase.robot
+                '''
+            }
+        }
+
+        stage('Archive Report') {
+            steps {
+                archiveArtifacts artifacts: 'report.html, log.html, output.xml', allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Pipeline finished with status: ${currentBuild.currentResult}"
+        }
+        success {
+            echo '✅ Mobile tests passed!'
+        }
+        failure {
+            echo '❌ Mobile tests failed. Check console output.'
+        }
+    }
+}
