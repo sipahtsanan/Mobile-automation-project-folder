@@ -9,4 +9,5 @@ ${APPIUM_SERVER}                                http://host.docker.internal:4723
 # ANDROID
 ${DeviceName_Android}                           emulator-5554
 ${PlatformVersion_Android}                      13
-${AppName_Android}                              ${EXECDIR}/app/Minimal_To_Do.apk
+# ${AppName_Android}                              ${EXECDIR}/app/Minimal_To_Do.apk
+${AppName_Android}                              ${APK_PATH}

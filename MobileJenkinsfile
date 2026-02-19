@@ -1,8 +1,15 @@
 pipeline {
     agent any
 
+    parameters {
+        string(
+            name: 'APK_PATH',
+            defaultValue: '',
+            description: 'Absolute path to APK file on your Mac. Example: /Users/<your-username>/appium-apps/Minimal_To_Do.apk'
+        )
+    }
+
     environment {
-        // ชี้ไปที่ Appium บน Mac host
         APPIUM_HOST = 'host.docker.internal'
         APPIUM_PORT = '4723'
     }
@@ -18,47 +25,19 @@ pipeline {
             }
         }
 
-
-        stage('Check Android') {
-            steps {
-                sh '''
-                    echo "USER: $(whoami)"
-                    echo "PWD: $(pwd)"
-                    echo "ANDROID_HOME=$ANDROID_HOME"
-                    which adb || true
-                    which emulator || true
-                    emulator -list-avds || true
-                '''
-            }
-        }   
-
-
-        stage('Debug Path') {
-            steps {
-                sh '''
-                    echo "===== DEBUG PATH ====="
-                    echo "PWD=$(pwd)"
-                    ls -la
-                    echo "---- app folder ----"
-                    ls -la app || true
-                    echo "======================"
-                '''
-            }
-        }
-
-
         stage('Run Mobile Tests') {
             steps {
-                sh '''
+                sh """
                     python3 -m robot \
                         -v system:Android \
                         -v APPIUM_HOST:${APPIUM_HOST} \
                         -v APPIUM_PORT:${APPIUM_PORT} \
+                        -v APK_PATH:${params.APK_PATH} \
                         --output output.xml \
                         --log log.html \
                         --report report.html \
                         testcase/testcase.robot
-                '''
+                """
             }
         }
 
